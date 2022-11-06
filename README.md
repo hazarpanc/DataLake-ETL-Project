@@ -61,5 +61,5 @@ In addition to the data files, the project workspace includes 5 files:
 
 **1. etl.py**                    Loading song data and log data from S3 to Spark, transforms data into a set of dimensional tables, then save the table back to S3 <br>
 **2. Notebook.ipynb**            Contains the same code as in etl.py with the output the code generates <br>
-**3. dl.cfg**                    Stores the access keys for AWS<br>
+**3. dl.cfg**                    Configuration file containing AWS IAM credentials
 **4. README.md**                 Provides project information<br>
