@@ -15,6 +15,13 @@ os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
 
 
 def create_spark_session():
+    """
+    Creates a spark session.
+    
+    Returns:
+            Spark session object
+    
+    """
     spark = SparkSession \
         .builder \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
@@ -23,6 +30,16 @@ def create_spark_session():
 
 
 def process_song_data(spark, input_data, output_data):
+    """Extracts song data from json files on AWS S3. Writes extracted data to AWS S3 data lake bucket.
+    
+    Arguments:
+            spark {object}:        The entry point to programming Spark with the Dataset and DataFrame API.
+            input_data {string}:   S3 bucket where Sparkify's event data is stored 
+            output_data {string}:  S3 bucket to store extracted parquet data file
+    Returns:
+            No return values 
+    """
+
     # get filepath to song data file
     song_data = input_data + '/song_data/*/*/*'
     
@@ -60,8 +77,18 @@ def process_song_data(spark, input_data, output_data):
 
 
 def process_log_data(spark, input_data, output_data):
+    """Extracts log data from json files on AWS S3. Runs transformations and extracts user, time and user activity data. Finally, loads the data to AWS S3 data lake bucket.
+    
+    Arguments:
+            spark {object}:        The entry point to programming Spark with the Dataset and DataFrame API.
+            input_data {string}:   S3 bucket where Sparkify's event data is stored 
+            output_data {string}:  S3 bucket to store extracted parquet data files
+    Returns:
+            No return values
+    
+    """
+  
     # get filepath to log data file
-    #log_data = input_data + 'log_data/*'
     log_data = log_data = input_data + "log_data/*/*/*.json"
 
     # read log data file
@@ -140,6 +167,9 @@ def process_log_data(spark, input_data, output_data):
 
 
 def main():
+    """
+    Run the ETL process.
+    """
     spark = create_spark_session()
     input_data = "s3a://udacity-dend/"
     output_data = "s3://data-lake-project-hp/"
