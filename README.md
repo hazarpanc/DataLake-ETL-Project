@@ -48,7 +48,7 @@ Files are partitioned by year and month. Example filepaths to files in this data
 >**s3://udacity-dend/log_data/2018/11/2018-11-13-events.json**
 
 The JSON files containing user activity have the following structure.
-
+![alt text](https://raw.githubusercontent.com/hazarpanc/data-lake-with-spark/main/log-data.png)
 
 ## How to Run
 1. Enter the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in the ```dwh.cfg``` configuration file.
