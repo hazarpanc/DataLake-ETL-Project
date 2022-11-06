@@ -1,8 +1,8 @@
 # Project: Data Lake with Spark
 This is a portfolio project I did part of Data Engineering nanodegree program. The goal of the project is to build an ETL pipeline that extracts data from S3, processes the data using Spark, and load the data back into another S3 bucket as a set of dimensional tables. The pipeline runs on an AWS EMR cluster with Spark.
 
-### Background
-A music streaming startup, Sparkify, want to move their data warehouse to a data lake. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
+#### Background
+A music streaming startup, Sparkify, wants to move their data warehouse to a data lake. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 
 
 ## Data
