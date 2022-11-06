@@ -9,13 +9,13 @@ A music streaming startup, Sparkify, wants to move their data warehouse to a dat
 
 The data for this project resides on Amazon S3.
 
-Song data: s3://udacity-dend/song_data
-Log data: s3://udacity-dend/log_data
-Sample data is available in the data folder in this repository.
+Song data: `s3://udacity-dend/song_data`<br>
+Log data: `s3://udacity-dend/log_data`<br>
+Sample data is available in the `data` folder within this repository.<br>
 
 #### Song Data
 
-The first dataset is a subset of real data from the [Million Song Dataset](http://millionsongdataset.com/).
+The first dataset is a subset of real data from the [Million Song Dataset](http://millionsongdataset.com/).<br>
 Each file is in JSON format and contains metadata about a song and the artist of that song. 
 
 The files are partitioned by the first three letters of each song's track ID. <br>
@@ -51,7 +51,7 @@ The JSON files containing user activity have the following structure.
 
 
 ## How to Run
-1. Enter the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in the ```dwh.cfg``` configuration file.
+1. Enter the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in the ```dwh.cfg``` configuration file.
 2. Create an S3 bucket on AWS that will be the data lake. Change the output_data variable in the main() function with the bucket name.
 3. Run ```etl.py``` on the cluster
 
