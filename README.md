@@ -12,7 +12,7 @@ The data for this project resides on Amazon S3.
 Song data: `s3://udacity-dend/song_data`<br>
 Log data: `s3://udacity-dend/log_data`<br>
 Sample data is available in the `data` folder within this repository.<br>
-
+<br>
 #### Song Data
 
 The first dataset is a subset of real data from the [Million Song Dataset](http://millionsongdataset.com/).<br>
@@ -39,6 +39,7 @@ Structure of the song json file, **TRAABJL12903CDCF1A.json**, is shown below<br>
     "year": 0    
 }
 ```
+<br>
 #### Log Data
 
 The second dataset consists of log files in JSON format. <br>
@@ -47,14 +48,14 @@ Files are partitioned by year and month. Example filepaths to files in this data
 >**s3://udacity-dend/log_data/2018/11/2018-11-12-events.json**<br>
 >**s3://udacity-dend/log_data/2018/11/2018-11-13-events.json**
 
-The JSON files containing user activity have the following structure.
+The JSON files containing user activity have the following structure.<br>
 ![alt text](https://raw.githubusercontent.com/hazarpanc/data-lake-with-spark/main/log-data.png)
-
+<br>
 ## How to Run
 1. Enter the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in the ```dwh.cfg``` configuration file.
 2. Create an S3 bucket on AWS that will be the data lake. Change the output_data variable in the main() function with the bucket name.
 3. Run ```etl.py``` on the cluster
-
+<br>
 ## <br>Project Files
 
 In addition to the data files, the project workspace includes 5 files:
