@@ -1,7 +1,3 @@
-# DataLake-ETL-Project
-
-
-
 # Project: Data Lake with Spark
 This is a portfolio project I did part of Data Engineering nanodegree program. The goal of the project is to build an ETL pipeline that extracts data from S3, processes the data using Spark, and load the data back into another S3 bucket as a set of dimensional tables. The pipeline runs on an AWS EMR cluster with Spark.
 
