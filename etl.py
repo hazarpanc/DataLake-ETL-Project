@@ -102,6 +102,7 @@ def process_log_data(spark, input_data, output_data):
 
     # extract columns for users table    
     users_table = spark.sql("SELECT userId, firstName, lastName, gender, level FROM logs WHERE page='NextSong'")
+    users_table = users_table.drop_duplicates(subset=['userId'])
     
     # write users table to parquet files
     users_table.write.parquet(path=output_data+"users/users.parquet", mode="overwrite")
@@ -135,8 +136,22 @@ def process_log_data(spark, input_data, output_data):
                              mode="overwrite", \
                              partitionBy=["year","month"])
 
+    # define the schema for songs table
+    songSchema = StructType([
+        StructField("artist_id",StringType()),
+        StructField("artist_latitude",DoubleType()),
+        StructField("artist_location",StringType()),
+        StructField("artist_longitude",DoubleType()),
+        StructField("artist_name",StringType()),
+        StructField("duration",DoubleType()),
+        StructField("num_songs",IntegerType()),
+        StructField("song_id",StringType()),
+        StructField("title",StringType()),
+        StructField("year",IntegerType()),
+    ])
+
     # read in song data to use for songplays table
-    song_data = 'data/song_data/*/*/*'
+    song_data = input_data + 'song_data/*/*/*'
     song_df = spark.read.json(song_data, schema=songSchema).drop_duplicates()
     song_df.createOrReplaceTempView("songs")
     songs_table = spark.sql("SELECT song_id, title, artist_id, year, duration FROM songs")
